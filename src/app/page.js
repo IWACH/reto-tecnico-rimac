@@ -1,7 +1,10 @@
-export default function Home() {
+import Footer from "@/components/Footer";
+import Home from "@/components/home/Home";
+export default function HomePage() {
   return (
-    <main className="main">
-      <p className="main-title">Reto Técnico Rimac Seguros</p>
-    </main>
+    <>
+      <Home />
+      <Footer />
+    </>
   );
 }

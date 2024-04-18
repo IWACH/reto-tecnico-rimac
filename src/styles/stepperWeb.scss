@@ -1,0 +1,37 @@
+.stepper {
+    .stepper-container {
+      .step-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+  
+        .step-item {
+          display: flex;
+          align-items: center;
+  
+          .step-number {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #1F2F56;
+            color: #fff;
+            font-size: 16px;
+            margin-right: 8px;
+          }
+  
+          .step-description {
+            font-size: 16px;
+            color: #141938;
+          }
+        }
+  
+        .step-item:not(:last-child)::after {
+          content: '...';
+          margin: 0 16px;
+        }
+      }
+    }
+  }

@@ -1,0 +1,233 @@
+.main {
+  padding: 0 24px 96px;
+  .main-container {
+    grid-template-areas:
+      "cardTop cardTop cardTop image"
+      "separator separator separator separator"
+      "cardBottom cardBottom cardBottom cardBottom";
+
+    .image-container {
+      grid-area: image;
+      width: 136px;
+      justify-self: end;
+    }
+    .card-top {
+      grid-area: cardTop;
+      align-self: center;
+      .card-message {
+        display: inline-flex;
+        padding: 0.125rem 0.5rem 0.125rem 0.5rem;
+        background: rgb(0, 244, 226);
+        background: linear-gradient(
+          90deg,
+          rgba(0, 244, 226, 1) 0%,
+          rgba(0, 255, 127, 1) 100%
+        );
+        border-radius: 0.25rem;
+        color: #03050f;
+        font-size: 0.75rem;
+        font-weight: 700;
+        line-height: 1rem;
+        letter-spacing: 0.025rem;
+      }
+      .card-title {
+        color: #03050f;
+        font-size: 1.75rem;
+        font-weight: 700;
+        line-height: 2.25rem;
+        margin-top: 0.5rem;
+      }
+    }
+    .separator {
+      display: block;
+      grid-area: separator;
+      width: 100%;
+      border-bottom: 1px solid #ccd1ee;
+      margin-top: 1.5rem;
+    }
+    .card-bottom {
+      grid-area: cardBottom;
+      margin-top: 1.5rem;
+      .card-subtittle {
+        color: #03050f;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        letter-spacing: 0.2px;
+        margin-bottom: 24px;
+      }
+      .input-group {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        .select-input {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          height: 3.5rem;
+          border-radius: 0.5rem;
+          overflow: hidden;
+          border: 0.0625rem solid #5e6488;
+
+          select,
+          input {
+            height: 100%;
+            border: none;
+            padding: 0.5rem;
+            height: 100%;
+          }
+
+          select {
+            flex: 1;
+            border-right: 1px solid #5e6488;
+          }
+
+          input {
+            flex: 3;
+          }
+        }
+        .input-field {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          height: 3.5rem;
+          border-radius: 0.5rem;
+          overflow: hidden;
+          border: 0.0625rem solid #5e6488;
+
+          input {
+            height: 100%;
+            border: none;
+            padding: 0.5rem;
+            height: 100%;
+            flex: 1;
+          }
+        }
+      }
+      .checkbox-group {
+        color: #0a051e;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0.1px;
+        margin-top: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        .checkbox-field {
+          display: flex;
+          gap: 0.625rem;
+
+          input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+            width: 1.25rem;
+            height: 1.25rem;
+            padding: 0.125rem;
+            border-radius: 0.25rem;
+
+            &:checked + label::before {
+              background-color: #000;
+              color: #fff;
+              content: "\2713";
+              text-align: center;
+            }
+          }
+
+          label {
+            position: relative;
+            padding-left: 2.125rem;
+
+            &::before {
+              content: "";
+              position: absolute;
+              left: 0;
+              width: 1.25rem;
+              height: 1.25rem;
+              border: 1px solid #000;
+              border-radius: 0.25rem;
+            }
+          }
+        }
+      }
+      .error {
+        color: red;
+      }
+
+      .error-message{
+        margin: 0;
+      }
+
+      .input-field.error input {
+        border-color: red;
+      }
+
+      .btn {
+        width: 100%;
+        height: 56px;
+        margin-top: 36px;
+        padding: 18px 32px;
+        background-color: #03050f;
+        border-radius: 40px;
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 20px;
+        letter-spacing: 0.4px;
+      }
+    }
+  }
+  @media (min-width: 768px) {
+    padding: 3rem 24px 6rem;
+    .main-container {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-areas:
+        "image image image image image image cardTop cardTop cardTop cardTop cardTop cardTop"
+        "image image image image image image cardBottom cardBottom cardBottom cardBottom cardBottom cardBottom";
+
+      .image-container {
+        grid-area: image;
+        width: 30rem;
+        justify-self: start;
+      }
+
+      .card-top {
+        grid-area: cardTop;
+        grid-column: span 4;
+        align-self: center;
+        .card-title {
+          color: #03050f;
+          font-size: 2rem;
+          font-weight: 700;
+          line-height: 40px;
+          margin-top: 0.5rem;
+        }
+        .card-message {
+          display: inline-flex;
+          padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+          font-size: 0.875rem;
+          font-weight: 700;
+          line-height: 1rem;
+          letter-spacing: 0.025rem;
+        }
+      }
+      .separator {
+        display: none;
+      }
+      .card-bottom {
+        grid-area: cardBottom;
+        grid-column: span 4;
+        align-self: center;
+        margin-top: 0;
+        .btn {
+          display: inline-block;
+          width: 195px;
+          height: 4rem;
+          font-size: 20px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

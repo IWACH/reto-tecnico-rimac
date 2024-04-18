@@ -1,9 +1,13 @@
 @import "~@fortawesome/fontawesome-free/css/all.css";
 
-@import "./main.scss";
+@import "./home/main.scss";
 @import "./header.scss";
 @import "./grid.scss";
 @import "./footer.scss";
+@import "./home/termsAndConditions.scss";
+@import "./plans//cardPlanInfo.scss";
+@import "./stepper.scss";
+@import "./plans/cardProducts.scss";
 
 html,
 body {

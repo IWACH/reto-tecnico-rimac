@@ -1,0 +1,111 @@
+.plans-container {
+  max-width: 100%;
+  padding: 40px 0 80px;
+  grid-template-areas:
+    "title title title title"
+    "subtitle subtitle subtitle subtitle"
+    "cards cards cards cards";
+  .plans-title {
+    grid-area: title;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: -0.2px;
+    color: #141938;
+  }
+  .plans-subtitle {
+    grid-area: subtitle;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0.1px;
+    color: #141938;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .plans-cards {
+    grid-area: cards;
+    display: grid;
+    gap: 1.5rem;
+    //width: 100%;
+  }
+  .content-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1.5rem 2.5rem 1.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 0 10px #aeacf3;
+
+    .checkbox-card {
+      position: relative;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      border: 1px solid #a9afd9;
+      appearance: none;
+      outline: none;
+      align-self: flex-end;
+      input {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+      }
+
+      .fa-solid {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      input:checked {
+        & ~ .fa-solid {
+          display: block;
+        }
+      }
+    }
+
+    .box-icon-title {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 1rem;
+      align-items: center;
+
+      .icon-card {
+        display: flex;
+        align-items: center;
+      }
+
+      .title-card {
+        font-size: 20px;
+        font-weight: 900;
+        line-height: 28px;
+        letter-spacing: -0.2px;
+        color: #141938;
+      }
+      .description-card {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0.2px;
+        color: #141938;
+      }
+    }
+  }
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .plans-cards {
+      display: flex;
+      flex-direction: row;
+    }
+    .content-card {
+      height: 212px;
+      width: 256px;
+    }
+  }
+}
