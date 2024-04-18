@@ -1,4 +1,6 @@
+import Footer from "@/components/Footer";
 import "../styles/index.scss";
+import Header from "@/components/Header";
 
 export const metadata = {
   title: "Reto Técnico",
@@ -8,7 +10,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

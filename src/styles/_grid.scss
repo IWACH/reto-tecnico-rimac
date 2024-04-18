@@ -1,0 +1,18 @@
+$grid-gap-web: 2rem;
+$grid-gap-mobile: 1rem;
+$max-width: 1120px;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: $grid-gap-mobile;
+  grid-row-gap: 0px;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: $grid-gap-web;
+    width: $max-width;
+  }
+}

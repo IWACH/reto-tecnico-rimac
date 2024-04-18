@@ -1,8 +1,14 @@
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
 @import "./main.scss";
+@import "./header.scss";
+@import "./grid.scss";
+@import "./footer.scss";
 
 html,
 body {
   padding: 0;
   margin: 0;
+  min-height: 100vh;
   font-family: "Poppins", sans-serif;
 }
