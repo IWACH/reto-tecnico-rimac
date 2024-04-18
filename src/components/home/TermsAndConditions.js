@@ -16,7 +16,7 @@ const TermsAndConditions = () => {
       {isOpen && (
         <div className="popup">
           <div className="popup-header">
-            <i onClick={togglePopup} class="fa-solid fa-chevron-left"></i>
+            <i onClick={togglePopup} className="fa-solid fa-chevron-left"></i>
             <h2>Aplican Términos y Condiciones</h2>
           </div>
           <hr />
@@ -29,9 +29,9 @@ const TermsAndConditions = () => {
               para estar bien informado.
             </p>
             <p>
-              Si tienes preguntas o inquietudes sobre los 'Términos y
-              Condiciones', no dudes en ponerte en contacto con nuestro equipo
-              de soporte. Estamos aquí para ayudarte y garantizar que tu
+              Si tienes preguntas o inquietudes sobre los &apos;Términos y
+              Condiciones&apos;, no dudes en ponerte en contacto con nuestro
+              equipo de soporte. Estamos aquí para ayudarte y garantizar que tu
               experiencia sea transparente y segura.
             </p>
           </div>
