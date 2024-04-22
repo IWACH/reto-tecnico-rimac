@@ -4,7 +4,7 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="footer-container grid">
+      <div className="footer-container ">
         <div className="footer-left">
           <Image
             src="/logo-footer-mobil.svg"

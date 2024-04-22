@@ -5,7 +5,7 @@ import TermsAndConditions from "./TermsAndConditions";
 import Link from "next/link";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { getUsers, saveUserObject } from "@/lib/features/userSlice";
-import { getProducts } from "@/lib/features/productSlice";
+
 const Home = () => {
   const dispatch = useAppDispatch();
 
@@ -59,20 +59,17 @@ const Home = () => {
             height={560}
           />
         </div>
-
-        <div className="separator"></div>
-
-        <div className="card-top">
+        <div className="card-messages-container">
           <div className="card-message">Seguro Salud Flexible</div>
           <div className="card-title">Creado para ti y tu familia</div>
         </div>
 
         <div className="card-bottom">
+          <div className="separator"></div>
           <div className="card-subtittle">
             Tú eliges cuánto pagar. Ingresa tus datos, cotiza y recibe nuestra
             asesoría. 100% online.
           </div>
-
           <div
             className={`input-group ${
               formAttempted && !documentNumber ? "error" : ""
@@ -84,13 +81,16 @@ const Home = () => {
                 <option value="ruc">RUC</option>
               </select>
               <input
-                type="text"
+                type="number"
                 id="document-number"
                 name="document-number"
                 placeholder="Nro de documento"
                 value={documentNumber}
-                onChange={(e) => setDocumentNumber(e.target.value)}
-                maxLength={8}
+                onChange={(e) => {
+                  if (e.target.value.length <= 8) {
+                    setDocumentNumber(e.target.value);
+                  }
+                }}
               />
             </div>
             {formAttempted && !documentNumber && (
@@ -102,13 +102,16 @@ const Home = () => {
               }`}
             >
               <input
-                type="tel"
+                type="number"
                 id="phone-number"
                 name="phone-number"
                 placeholder="Número de celular"
                 value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)} 
-                maxLength={9}
+                onChange={(e) => {
+                  if (e.target.value.length <= 9) {
+                    setPhoneNumber(e.target.value);
+                  }
+                }}
               />
             </div>
             {formAttempted && !phoneNumber && (

@@ -3,15 +3,13 @@ import Image from "next/image";
 const Header = () => {
   return (
     <header className="header">
-      <div className="header-container grid">
-        <div className="header-left">
-          <Image
-            src="/rimac-logo.svg"
-            alt="Logo Rimac"
-            width={73.19}
-            height={36}
-          />
-        </div>
+      <div className="header-container">
+        <Image
+          src="/rimac-logo.svg"
+          alt="Logo Rimac"
+          width={73.19}
+          height={36}
+        />
         <div className="header-right">
           <div className="header-text">¡Compra por este medio!</div>
           <div className="header-phone">

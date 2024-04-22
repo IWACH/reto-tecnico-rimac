@@ -13,6 +13,33 @@ html,
 body {
   padding: 0;
   margin: 0;
-  min-height: 100vh;
   font-family: "Poppins", sans-serif;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 56px 1fr 153px;
+  min-height: 100vh;
+
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+
+  .header {
+    grid-area: header;
+    padding: 0 24px;
+  }
+  .main {
+    grid-area: main;
+    padding: 24px 24px;
+  }
+  .footer {
+    grid-area: footer;
+    padding: 32px 24px;
+  }
+
+  @media (min-width: 768px) {
+    grid-template-rows: 56px calc(100vh - 56px) 106px;
+  }
 }
