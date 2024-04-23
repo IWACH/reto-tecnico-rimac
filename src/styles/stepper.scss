@@ -1,7 +1,7 @@
 .stepper {
   width: 100%;
   background-color: #edeffc;
-  border-bottom: 1px solid #d7dbf5; 
+  border-bottom: 1px solid #d7dbf5;
   .stepper-container {
     display: flex;
     align-items: center;
@@ -15,6 +15,7 @@
       cursor: pointer;
 
       .fa-solid {
+        color: #4f4fff;
         font-size: 24px;
       }
     }
@@ -32,13 +33,16 @@
     .progress-bar {
       flex-grow: 1;
       height: 4px;
-      background-color: #D7DBF5;
+      background-color: #d7dbf5;
 
       .progress {
         width: 50%;
         height: 100%;
-        background-color: #4F4FFF;
+        background-color: #4f4fff;
       }
     }
+  }
+  @media (min-width: 768px) {
+    display: none;
   }
 }

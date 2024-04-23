@@ -5,7 +5,7 @@ export const createGetThunk = ({ name, url }) =>
   createAsyncThunk(name, async () => {
     return axios.get(url).then((response) => {
       if (response) {
-        return response;
+        return response.data;
       }
     });
   });
@@ -37,10 +37,10 @@ export const generateCRUD = (url, sliceName) => {
 
     builder.addCase(actions[0].fulfilled, (state, action) => {
       state.isLoading = false;
-      if (Array.isArray(action.payload.data.list)) {
-        state.data = action.payload.data.list;
+      if (Array.isArray(action.payload.list)) {
+        state.data = action.payload.list;
       } else {
-        state.data = action.payload.data;
+        state.data = action.payload;
       }
     });
 

@@ -7,7 +7,9 @@
 @import "./home/termsAndConditions.scss";
 @import "./plans//cardPlanInfo.scss";
 @import "./stepper.scss";
+@import "./stepperWeb.scss";
 @import "./plans/cardProducts.scss";
+@import "./plans/plans.scss";
 
 html,
 body {
@@ -18,13 +20,12 @@ body {
 
 .container {
   display: grid;
-  grid-template-rows: 56px 1fr 153px;
+  grid-template-rows: 56px calc(100vh - 56px);
   min-height: 100vh;
 
   grid-template-areas:
     "header"
-    "main"
-    "footer";
+    "main";
 
   .header {
     grid-area: header;
@@ -32,14 +33,6 @@ body {
   }
   .main {
     grid-area: main;
-    padding: 24px 24px;
-  }
-  .footer {
-    grid-area: footer;
-    padding: 32px 24px;
   }
 
-  @media (min-width: 768px) {
-    grid-template-rows: 56px calc(100vh - 56px) 106px;
-  }
 }

@@ -7,7 +7,7 @@ const Stepper = () => {
       <div className="stepper-container">
         <Link href="/">
           <button className="back-button">
-            <i className="fa-solid fa-circle-arrow-left"></i>
+            <i className="fa-solid fa-circle-chevron-left"></i>
           </button>
         </Link>
 

@@ -30,40 +30,66 @@ const Plans = () => {
     setSelectedPlan(planTitle);
   };
 
+  const planInfo = [
+    {
+      title: "Para mí",
+      icon: "/plans/select-for-me.svg",
+      description:
+        "Cotiza tu seguro de salud y agrega familiares si así lo deseas.",
+    },
+    {
+      title: "Para alguien más",
+      icon: "/plans/select-for-someone.svg",
+      description:
+        "Realiza una cotización para uno de tus familiares o cualquier persona.",
+    },
+  ];
+
   return (
     <div className="main">
-      <div className="plans-container">
-        <div className="plans-title">{`${users.name}, ¿Para quién deseas cotizar?`}</div>
-        <div className="plans-subtitle">
-          Selecciona la opción que se ajuste más a tus necesidades.
+      <div className="plans-container grid">
+        <div className="plans-back">
+          <i className="fa-solid fa-circle-chevron-left"></i>
+          <span>Volver</span>
         </div>
+        <div className="box-plan-title">
+          <div className="plans-title">{`${users.name}, ¿Para quién deseas cotizar?`}</div>
+          <div className="plans-subtitle">
+            Selecciona la opción que se ajuste más a tus necesidades.
+          </div>
+        </div>
+
         <div className="plans-cards">
-          <CardPlanInfo
-            title="Para mí"
-            icon="/plans/select-for-me.svg"
-            description="Cotiza tu seguro de salud y agrega familiares si así lo deseas."
-            onCheckboxChange={handleCheckboxChange}
-            isSelected={selectedPlan === "Para mí"}
-          />
-          <CardPlanInfo
-            title="Para alguien más"
-            icon="/plans/select-for-someone.svg"
-            description="Realiza una cotización para uno de tus familiares o cualquier persona."
-            onCheckboxChange={handleCheckboxChange}
-            isSelected={selectedPlan === "Para alguien más"}
-          />
+          {planInfo.map((plan, index) => (
+            <CardPlanInfo
+              key={index}
+              title={plan.title}
+              icon={plan.icon}
+              description={plan.description}
+              onCheckboxChange={() => handleCheckboxChange(index)}
+              isSelected={selectedPlan === index}
+            />
+          ))}
         </div>
-        {products &&
-          map(products, (product) => {
-            return (
-              <CardProduct
-                description={product.description}
-                name={product.name}
-                price={product.price}
-                icon="/products/icon-product-1.svg"
-              />
-            );
-          })}
+        <div className="box-products">
+          {selectedPlan !== null && (
+            <div>
+              {products &&
+                map(products, (product) => {
+                  const price =
+                    selectedPlan === 1 ? product.price * 0.95 : product.price;
+                  return (
+                    <CardProduct
+                      description={product.description}
+                      name={product.name}
+                      price={price}
+                      icon="/products/icon-product-1.svg"
+                    />
+                  );
+                })}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
