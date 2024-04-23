@@ -5,11 +5,13 @@ import { getUsers } from "@/lib/features/userSlice";
 import CardPlanInfo from "./CardPlanInfo";
 import { getProducts } from "@/lib/features/productSlice";
 import CardProduct from "./CardProduct";
-import { map } from "lodash";
+import { map, filter } from "lodash";
+import dayjs from "dayjs";
 
 const Plans = () => {
   const dispatch = useAppDispatch();
   const [selectedPlan, setSelectedPlan] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     dispatch(getUsers());
@@ -26,9 +28,24 @@ const Plans = () => {
     (state) => state.products
   );
 
+  useEffect(() => {
+    if (!userLoading && users) {
+      setLoading(false);
+    }
+  }, [userLoading, users]);
+
   const handleCheckboxChange = (planTitle) => {
     setSelectedPlan(planTitle);
   };
+
+  function calculateAge(birthdate) {
+    const dob = dayjs(birthdate, "DD-MM-YYYY");
+    const age = dayjs().diff(dob, "year");
+
+    return age;
+  }
+
+  const userAge = calculateAge(users?.birthDay);
 
   const planInfo = [
     {
@@ -45,6 +62,22 @@ const Plans = () => {
     },
   ];
 
+  if (userLoading || loading) {
+    return (
+      <div className="main">
+        <div className="plans-container grid">
+          <div className="plans-back">
+            <i className="fa-solid fa-circle-chevron-left"></i>
+            <span>Volver</span>
+          </div>
+          <div className="box-plan-title">
+            <div className="plans-title">Cargando...</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="main">
       <div className="plans-container grid">
@@ -53,7 +86,7 @@ const Plans = () => {
           <span>Volver</span>
         </div>
         <div className="box-plan-title">
-          <div className="plans-title">{`${users.name}, ¿Para quién deseas cotizar?`}</div>
+          <div className="plans-title">{`${users?.name}, ¿Para quién deseas cotizar?`}</div>
           <div className="plans-subtitle">
             Selecciona la opción que se ajuste más a tus necesidades.
           </div>
@@ -75,18 +108,21 @@ const Plans = () => {
           {selectedPlan !== null && (
             <div>
               {products &&
-                map(products, (product) => {
-                  const price =
-                    selectedPlan === 1 ? product.price * 0.95 : product.price;
-                  return (
-                    <CardProduct
-                      description={product.description}
-                      name={product.name}
-                      price={price}
-                      icon="/products/icon-product-1.svg"
-                    />
-                  );
-                })}
+                map(
+                  filter(products, (product) => product.age >= userAge),
+                  (product) => {
+                    const price =
+                      selectedPlan === 1 ? product.price * 0.95 : product.price;
+                    return (
+                      <CardProduct
+                        description={product.description}
+                        name={product.name}
+                        price={price}
+                        icon="/products/icon-product-1.svg"
+                      />
+                    );
+                  }
+                )}
             </div>
           )}
         </div>
