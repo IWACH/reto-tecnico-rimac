@@ -23,7 +23,6 @@
       display: flex;
       justify-content: space-between;
       margin-bottom: 1rem;
-      align-items: center;
     }
 
     .plan-title {
@@ -38,7 +37,6 @@
     .box-price {
       display: flex;
       justify-content: flex-start;
-      align-items: center;
       flex-direction: column;
       margin-bottom: 20px;
 
@@ -51,10 +49,25 @@
         align-self: flex-start;
       }
 
+      .plan-cost-title {
+        letter-spacing: 0.6px;
+        color: #7981b2;
+      }
+
+      .plan-cost-discount {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 400;
+        letter-spacing: -0.2px;
+        margin-top: 4px;
+        color: #7981b2;
+        text-decoration: line-through;
+      }
       .plan-cost {
         font-size: 20px;
         line-height: 28px;
         letter-spacing: -0.2px;
+        margin-top: 4px;
       }
     }
 

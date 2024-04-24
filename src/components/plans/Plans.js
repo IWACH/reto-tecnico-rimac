@@ -111,13 +111,13 @@ const Plans = () => {
               map(
                 filter(products, (product) => product.age >= userAge),
                 (product) => {
-                  const price =
-                    selectedPlan === 1 ? product.price * 0.95 : product.price;
+                  const discount = selectedPlan === 1;
                   return (
                     <CardProduct
                       description={product.description}
                       name={product.name}
-                      price={price}
+                      discount={discount}
+                      price={product.price}
                       icon="/products/icon-product-1.svg"
                     />
                   );

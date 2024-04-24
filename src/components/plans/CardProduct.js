@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { map } from "lodash";
 
-const CardProduct = ({ name, icon, price, description }) => {
+const CardProduct = ({ name, icon, price, description, discount }) => {
   return (
     <div className="plan-card-container">
       <div className="medical-plan-card">
@@ -15,7 +15,10 @@ const CardProduct = ({ name, icon, price, description }) => {
         </div>
         <div className="box-price">
           <div className="plan-cost-title">COSTO DEL PLAN:</div>
-          <div className="plan-cost">{`$${price} al mes `}</div>
+          {discount ? <div className="plan-cost-discount">{`$${price} antes`}</div> : null}
+          <div className="plan-cost">{`$${
+            discount ? price * 0.95 : price
+          } al mes `}</div>
         </div>
 
         <hr />
