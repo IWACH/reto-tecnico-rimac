@@ -4,6 +4,11 @@
   padding: 1rem 1.5rem 2.5rem 1.5rem;
   border-radius: 1.5rem;
   box-shadow: 0 0 10px #aeacf3;
+  border: 1px solid transparent;
+  &.selected {
+    border: 3px solid black;
+    box-shadow: 0 0 10px transparent;
+  }
 
   .checkbox-card {
     position: relative;

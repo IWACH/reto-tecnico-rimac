@@ -14,7 +14,10 @@ const CardPlanInfo = ({
   };
 
   return (
-    <div className="content-card" onClick={handleCheckboxChange}>
+    <div
+      className={`content-card ${isSelected ? "selected" : ""}`}
+      onClick={handleCheckboxChange}
+    >
       <label className="checkbox-card">
         <input type="checkbox" checked={isSelected} readOnly />
         <i className="fa-solid fa-check"></i>

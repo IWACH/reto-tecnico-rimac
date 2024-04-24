@@ -104,28 +104,27 @@ const Plans = () => {
             />
           ))}
         </div>
-        <div className="box-products">
-          {selectedPlan !== null && (
-            <div>
-              {products &&
-                map(
-                  filter(products, (product) => product.age >= userAge),
-                  (product) => {
-                    const price =
-                      selectedPlan === 1 ? product.price * 0.95 : product.price;
-                    return (
-                      <CardProduct
-                        description={product.description}
-                        name={product.name}
-                        price={price}
-                        icon="/products/icon-product-1.svg"
-                      />
-                    );
-                  }
-                )}
-            </div>
-          )}
-        </div>
+
+        {selectedPlan !== null && (
+          <div className="box-products">
+            {products &&
+              map(
+                filter(products, (product) => product.age >= userAge),
+                (product) => {
+                  const price =
+                    selectedPlan === 1 ? product.price * 0.95 : product.price;
+                  return (
+                    <CardProduct
+                      description={product.description}
+                      name={product.name}
+                      price={price}
+                      icon="/products/icon-product-1.svg"
+                    />
+                  );
+                }
+              )}
+          </div>
+        )}
       </div>
     </div>
   );

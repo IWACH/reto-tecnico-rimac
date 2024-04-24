@@ -1,80 +1,105 @@
 .plan-card-container {
-    margin-top: 3rem;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-  .box-title-icon {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-    align-items: center;
-  }
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
   .medical-plan-card {
-    background-color: #fff; 
+    background-color: #fff;
     padding: 68px 32px 48px 32px;
-    border-radius: 10px; 
+    border-radius: 10px;
     box-shadow: 0 0 10px #aeacf3;
-    text-align: center; 
-    width: 18rem;
-    height: 43rem;
-  }
-  
-  .plan-title {
-    font-size: 24px;
-    line-height: 32px;
-    font-weight: 900;
-    letter-spacing: -0.2px;
-    color: #141938; 
-    margin-bottom: 10px; 
-  }
-  
-  .box-price {
+    width: 14rem;
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
     flex-direction: column;
-    margin-bottom: 20px;
-  
-    .plan-cost-title {
-      font-size: 12px;
-      line-height: 16px;
-      font-weight: 900;
-      letter-spacing: 0.6px;
-      color: #141938;
-      align-self: flex-start;
+
+    hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      width: 100%;
     }
-    .plan-cost {
-      font-size: 20px;
-      line-height: 28px;
+
+    .box-title-icon {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      align-items: center;
+    }
+
+    .plan-title {
+      font-size: 24px;
+      line-height: 32px;
       font-weight: 900;
       letter-spacing: -0.2px;
       color: #141938;
-      align-self: flex-start;
+      margin-bottom: 10px;
+    }
+
+    .box-price {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+      margin-bottom: 20px;
+
+      .plan-cost-title,
+      .plan-cost {
+        font-size: 12px;
+        line-height: 16px;
+        font-weight: 900;
+        color: #141938;
+        align-self: flex-start;
+      }
+
+      .plan-cost {
+        font-size: 20px;
+        line-height: 28px;
+        letter-spacing: -0.2px;
+      }
+    }
+
+    .plan-benefits {
+      ul {
+        padding-left: 20px;
+        margin-bottom: 40px;
+
+        li {
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 28px;
+          letter-spacing: 0.1px;
+          margin-bottom: 24px;
+        }
+
+        li:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .select-plan-button {
+      width: 14rem;
+      height: 3rem;
+      background-color: #ff1c44;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 32px;
+      cursor: pointer;
     }
   }
-  
-  .plan-benefits {
-    list-style: none; 
-    padding: 0; 
-  }
-  
-  .plan-benefits .custom-icon {
-    margin-bottom: 10px; 
-    list-style-type: none;
-  
-    .fa-solid {
-      margin-right: 10px;
+
+  @media (min-width: 768px) {
+    width: 288px;
+    justify-content: flex-end;
+
+    .medical-plan-card {
+      width: 288px;
+      box-sizing: border-box;
+
+      .select-plan-button {
+        margin-top: auto;
+      }
     }
   }
-  
-  .select-plan-button {
-    width: 14rem;
-    height: 3rem;
-    background-color: #ff1c44; 
-    color: #fff; 
-    padding: 10px 20px; 
-    border: none; 
-    border-radius: 32px; 
-    cursor: pointer; 
-  }
+}
